@@ -254,7 +254,7 @@ const Register = () => {
       if (regAs === "user") {
         setLoading(true);
         axios
-          .post("http://localhost:3001/register/user", formData)
+          .post("https://shoe-shop-jbik.onrender.com/register/user", formData)
           .then((res) => {
             succToastMessage(res.data);
             setLoading(false);
@@ -263,7 +263,7 @@ const Register = () => {
       } else {
         setLoading(true);
         axios
-          .post("http://localhost:3001/register/store", formData)
+          .post("https://shoe-shop-jbik.onrender.com/register/store", formData)
           .then((res) => {
             succToastMessage(res.data);
             setLoading(false);

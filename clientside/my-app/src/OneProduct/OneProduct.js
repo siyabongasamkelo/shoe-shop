@@ -321,7 +321,7 @@ const OneProduct = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:3001/get/item/${id}`)
+      .get(`https://shoe-shop-jbik.onrender.com/get/item/${id}`)
       .then((response) => {
         dispatch(getAllReviews(response.data.reviews));
         setItem(response.data.item);

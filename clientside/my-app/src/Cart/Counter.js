@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { detQuantity, removeItem } from "../Features/Cart";
+import { detQuantity } from "../Features/Cart";
 export const CounterStyled = styled.div`
   height: 40px;
   width: 120px;

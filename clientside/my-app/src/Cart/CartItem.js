@@ -1,7 +1,7 @@
 import React from "react";
 import { Trash } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
-import { detQuantity, removeItem } from "../Features/Cart";
+import { removeItem } from "../Features/Cart";
 import CartCard from "./CartCard";
 import Counter from "./Counter";
 

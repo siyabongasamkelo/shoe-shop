@@ -55,7 +55,7 @@ const SendersCard = ({ userId, clicked }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/get/user/${userId}`)
+      .get(`https://shoe-shop-jbik.onrender.com/get/user/${userId}`)
       .then((res) => {
         setSenders(res.data);
       })

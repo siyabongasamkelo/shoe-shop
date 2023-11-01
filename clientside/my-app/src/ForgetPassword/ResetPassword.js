@@ -249,7 +249,10 @@ const ResetPassWord = () => {
     //making sure that everything is valid before making the request
     if (isValid) {
       axios
-        .post(`http://localhost:3001/reset/${id}/${token}`, formData)
+        .post(
+          `https://shoe-shop-jbik.onrender.com/reset/${id}/${token}`,
+          formData
+        )
         .then((res) => {
           succToastMessage(res.data);
           //   goTo("/login");

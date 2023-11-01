@@ -3,7 +3,6 @@ import ManageItems from "./ManageItems";
 import { Bag, BarChartLine, Chat, ChatDots, Tag } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,7 +22,6 @@ export const LeftdivStyled = styled.div`
 
 const Leftdiv = () => {
   const [senders, setSenders] = useState([]);
-  const navigation = useNavigate();
   const theStore = useSelector((state) => state?.store?.value?.store[0]);
   let author = theStore?._id;
 
@@ -35,7 +33,7 @@ const Leftdiv = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/get/senders/${author}`)
+      .get(`https://shoe-shop-jbik.onrender.com/get/senders/${author}`)
       .then((res) => {
         setSenders(res.data);
       })

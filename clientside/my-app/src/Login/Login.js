@@ -218,7 +218,10 @@ const Login = () => {
     succToastMessage("sending request please wait");
     setLoading(true);
     axios
-      .post("http://localhost:3001/login/user", { email, password } /*config*/)
+      .post(
+        "https://shoe-shop-jbik.onrender.com/login/user",
+        { email, password } /*config*/
+      )
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         succToastMessage("you're now logged in");

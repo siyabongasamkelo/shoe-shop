@@ -317,7 +317,7 @@ const Admin = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/get/senders/${author}`)
+      .get(`https://shoe-shop-jbik.onrender.com/get/senders/${author}`)
       .then((res) => {
         setSenders(res.data);
       })

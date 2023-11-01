@@ -222,23 +222,6 @@ const Message = () => {
     });
   }, [socket]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:3001/get/senders/${author}`)
-  //     .then((res) => {
-  //       setSenders(res.data);
-  //     })
-  //     .catch((err) => {
-  //       showToastMessage(err.message);
-  //     });
-  // }, [socket]);
-
-  // useEffect(() => {
-  //   socket.on("receive-message", (message) => {
-  //     setMessages((current) => [...current, message.message]);
-  //   });
-  // }, [socket]);
-
   useEffect(() => {
     socket.on("senders", (senders) => {
       setSenders(senders);

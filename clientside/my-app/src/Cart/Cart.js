@@ -114,7 +114,7 @@ const Cart = () => {
     }
 
     axios
-      .post("http://localhost:3001/add/order", { order: orders })
+      .post("https://shoe-shop-jbik.onrender.com/add/order", { order: orders })
       .then((res) => {
         showToastMessage(res.data);
         dispatch(clearCart());

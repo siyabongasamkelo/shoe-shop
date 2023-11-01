@@ -232,12 +232,13 @@ const AddProdct = () => {
     formData.append("store", theStore?._id);
     // formData.append("store", "h1f3gf2g3f2t32");
 
-    console.log(isValid);
+    //https://shoe-shop-jbik.onrender.com
 
     if (isValid === true) {
       setLoading(true);
       axios
-        .post("http://localhost:3001/add/item", formData)
+        // .post("http://localhost:3001/add/item", formData)
+        .post("https://shoe-shop-jbik.onrender.com/add/item", formData)
         .then((res) => {
           showToastMessage(res.data);
           setLoading(false);

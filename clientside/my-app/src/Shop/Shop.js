@@ -69,7 +69,12 @@ const Shop = ({ genders, carts, sizes, sorts }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .post("http://localhost:3001/get/itemquery", { size, gender, cart, sort })
+      .post("https://shoe-shop-jbik.onrender.com/get/itemquery", {
+        size,
+        gender,
+        cart,
+        sort,
+      })
       .then((res) => {
         dispatch(clearItems());
         dispatch(getAllItems(res.data));

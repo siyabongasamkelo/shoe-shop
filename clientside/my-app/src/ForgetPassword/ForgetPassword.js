@@ -221,7 +221,7 @@ const ForgetPassword = () => {
     //making sure that everything is valid before making the request
     if (isValid === true) {
       axios
-        .post("http://localhost:3001/forgot/password", formData)
+        .post("https://shoe-shop-jbik.onrender.com/forgot/password", formData)
         .then((res) => {
           succToastMessage(res.data);
           //   goTo("/login");
