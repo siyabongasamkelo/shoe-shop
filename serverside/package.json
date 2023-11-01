@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devStart": "nodemon index.js",
-    "start": "node index.js",
-    "deploy": "node serverside/index.js"
+    "start": "node Index.js",
+    "deploy": "node serverside/Index.js"
   },
   "keywords": [],
   "author": "",
