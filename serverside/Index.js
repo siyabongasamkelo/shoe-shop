@@ -244,7 +244,7 @@ app.use("/reset", require("./routes/ResetPassword.js"));
 
 //store routs
 app.use("/register", require("./routes/registerStore.js"));
-app.use("/login", require("./routes/StoreLogin.js"));
+// app.use("/login", require("./routes/StoreLogin.js"));
 
 //bought items routs
 app.use("/add", require("./routes/addOdder.js"));
