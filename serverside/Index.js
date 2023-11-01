@@ -214,35 +214,35 @@ io.on("connection", (socket) => {
 
 //routes
 //product routes
-app.use("/add", require("./routes/addItems"));
-app.use("/get", require("./routes/getAllItems"));
-app.use("/get", require("./routes/getItem"));
-app.use("/get", require("./routes/getItemQuery"));
-app.use("/delete", require("./routes/deleteItem"));
+app.use("/add", require("./routes/addItems.js"));
+app.use("/get", require("./routes/getAllItems.js"));
+app.use("/get", require("./routes/getItem.js"));
+app.use("/get", require("./routes/getItemQuery.js"));
+app.use("/delete", require("./routes/deleteItem.js"));
 
 //get senders
-app.use("/get", require("./routes/getSenders"));
+app.use("/get", require("./routes/getSenders.js"));
 
 // app.use("/delete", require("./routes/deleteProduct"));
 
 //user auth routes
-app.use("/register", require("./routes/registerUser"));
-app.use("/login", require("./routes/LogIn"));
-app.use("/get", require("./routes/getUser"));
-app.use("/forgot", require("./routes/sendMail"));
-app.use("/reset", require("./routes/ResetPassword"));
+app.use("/register", require("./routes/registerUser.js"));
+app.use("/login", require("./routes/LogIn.js"));
+app.use("/get", require("./routes/getUser.js"));
+app.use("/forgot", require("./routes/sendMail.js"));
+app.use("/reset", require("./routes/ResetPassword.js"));
 
 //store routs
-app.use("/register", require("./routes/registerStore"));
-app.use("/login", require("./routes/StoreLogin"));
+app.use("/register", require("./routes/registerStore.js"));
+app.use("/login", require("./routes/StoreLogin.js"));
 
 //bought items routs
-app.use("/add", require("./routes/addOdder"));
-app.use("/get", require("./routes/getAllOrders"));
+app.use("/add", require("./routes/addOdder.js"));
+app.use("/get", require("./routes/getAllOrders.js"));
 
 //add review
-app.use("/add", require("./routes/addReview"));
-app.use("/get", require("./routes/getReviews"));
+app.use("/add", require("./routes/addReview.js"));
+app.use("/get", require("./routes/getReviews.js"));
 
 //404 not found
 app.all("*", (req, res) => {
