@@ -16,6 +16,12 @@ const io = require("socket.io")(3002, {
 dotenv.config();
 const app = express();
 
+app.set("routes", __dirname + "/routes");
+app.use("/routes/", express.static(path.join(__dirname, "./routes")));
+
+app.use(express.static("routes"));
+app.use(require("./routes"));
+
 //mongoDb connenction
 mongoose.set("strictQuery", true);
 app.use(express.json());
