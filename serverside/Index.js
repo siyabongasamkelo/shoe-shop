@@ -235,7 +235,7 @@ app.use("/get", require("./routes/getSenders.js"));
 // app.use("/delete", require("./routes/deleteProduct"));
 
 //user auth routes
-// app.use("/register", require("./routes/registerUser.js"));
+app.use("/register", registerUser);
 app.use("/login", require("./routes/LogIn.js"));
 app.use("/get", require("./routes/getUser.js"));
 app.use("/forgot", require("./routes/sendMail.js"));
