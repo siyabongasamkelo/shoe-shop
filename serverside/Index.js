@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const bodyparser = require("body-parser");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
@@ -20,7 +21,7 @@ app.set("routes", __dirname + "/routes");
 app.use("/routes/", express.static(path.join(__dirname, "./routes")));
 
 app.use(express.static("routes"));
-app.use(require("./routes"));
+// app.use(require("./routes"));
 
 //mongoDb connenction
 mongoose.set("strictQuery", true);
