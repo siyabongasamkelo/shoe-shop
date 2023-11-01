@@ -510,6 +510,7 @@ const OneProduct = () => {
                                 setOpenForm(!openForm);
                               }}
                               productId={item[0]._id}
+                              storeId={item[0].store}
                             />
                           ) : (
                             <Button

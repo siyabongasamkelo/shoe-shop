@@ -13,6 +13,7 @@ import {
   Twitter,
   Whatsapp,
 } from "react-bootstrap-icons";
+
 export const OneProdStyled = styled.section`
   height: 100vh;
   width: 100vw;
@@ -65,6 +66,9 @@ export const MainDiv = styled.div`
         letter-spacing: 4px;
       }
     }
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
   .middle-div {
     width: 70%;
@@ -116,6 +120,12 @@ export const MainDiv = styled.div`
         }
       }
     }
+    @media (max-width: 480px) {
+      width: 100%;
+      h1 {
+        font-size: 60px;
+      }
+    }
   }
   .right-div {
     width: 15%;
@@ -157,6 +167,10 @@ export const MainDiv = styled.div`
           border-radius: 30px;
           background-color: #ff6e31;
           border: none;
+          @media (max-width: 480px) {
+            width: 100px;
+            font-size: 14px;
+          }
         }
       }
     }
@@ -239,12 +253,16 @@ const ResetPassWord = () => {
     formData.append("conPassowrd", conPassword);
 
     //making sure that everything is valid before making the request
-    axios
-      .post(`http://localhost:3001/reset/${id}/${token}`, formData)
-      .then((res) => {
-        succToastMessage(res.data);
-        //   goTo("/login");
-      });
+    if (isValid) {
+      axios
+        .post(`http://localhost:3001/reset/${id}/${token}`, formData)
+        .then((res) => {
+          succToastMessage(res.data);
+          //   goTo("/login");
+        });
+    } else {
+      showToastMessage("please make sure all no feild is empty");
+    }
   };
 
   return (
@@ -256,7 +274,7 @@ const ResetPassWord = () => {
           <MainDiv className=" d-flex justify-content-center">
             <div className="main-cover">
               <div className="upper-div d-flex flex-column flex-sm-row">
-                <div className="left-div d-flex flex-column justify-content-around align-items-start">
+                <div className="left-div d-none d-md-flex flex-md-column justify-content-md-around align-items-md-start">
                   <div className="profile"></div>
                   <div className="socials">
                     <div className="icons d-flex justify-content-around align-items-center flex-column">

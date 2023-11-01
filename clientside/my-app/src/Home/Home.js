@@ -215,32 +215,6 @@ export const MainDiv = styled.div`
 `;
 
 const Home = () => {
-  const [items, setItems] = useState([]);
-
-  const showToastMessage = (message) => {
-    toast.success(message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
-  const showErrorMessage = (message) => {
-    toast.error(message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
-
-  useEffect(() => {
-    showToastMessage("fetching items");
-    axios
-      .get("http://localhost:3001/get/items")
-      .then((res) => {
-        setItems(res.data);
-      })
-      .catch((err) => {
-        showErrorMessage(err.message);
-      });
-  }, []);
-
-  console.log(items);
   return (
     <HomeStyled className="d-flex justify-content-center align-items-center">
       <HomeCover className="d-flex justify-content-center align-items-center">

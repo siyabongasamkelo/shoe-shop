@@ -244,6 +244,11 @@ app.use("/get", require("./routes/getAllOrders"));
 app.use("/add", require("./routes/addReview"));
 app.use("/get", require("./routes/getReviews"));
 
-app.listen(3001, () => {
+//404 not found
+app.all("*", (req, res) => {
+  res.json("404 Page not found");
+});
+
+app.listen(process.env.Port, () => {
   console.log("working");
 });

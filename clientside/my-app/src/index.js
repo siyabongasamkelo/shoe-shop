@@ -15,6 +15,7 @@ import usersReducer from "./Features/Users";
 import OrdersReducer from "./Features/Orders";
 import reviewsReducer from "./Features/Review";
 import storeReducer from "./Features/StoreReducer";
+import ErrorBoundary from "./Components/ErrorBoundary";
 
 const persistConfig = {
   key: "root",
@@ -46,10 +47,12 @@ let persistor = persistStore(store);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-  <Provider store={store}>
-    <PersistGate persistor={persistor}>
-      <App />
-    </PersistGate>
-  </Provider>
+  <ErrorBoundary fallback="There was an error">
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
+  </ErrorBoundary>
   // </React.StrictMode>
 );

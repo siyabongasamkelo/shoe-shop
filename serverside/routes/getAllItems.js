@@ -7,22 +7,6 @@ router.get(
   /*reactAuth,*/ async (req, res) => {
     const theProducts = await Items.find();
     res.send(theProducts);
-
-    // const item = await Items.aggregate([
-    //   {
-    //     $group: {
-    //       _id: null,
-    //       maxQty: { $min: "$price" },
-    //     },
-    //   },
-    //   {
-    //     $project: {
-    //       _id: 0,
-    //     },
-    //   },
-    // ]);
-
-    // res.json(item);
   }
 );
 

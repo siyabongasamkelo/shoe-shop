@@ -8,6 +8,7 @@ import Products from "./Admin/Products";
 import Message from "./Chat/Message";
 import Messaging from "./Chat/Messaging";
 import ForgetPassword from "./ForgetPassword/ForgetPassword";
+import NotFound from "./Notfound/NotFound";
 import AddProdPage from "./Pages/AddProdPage";
 import AdminPage from "./Pages/AdminPage";
 import AllItemsPage from "./Pages/AllItemsPage";
@@ -53,6 +54,7 @@ function App() {
         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/message" element={<Message />} />
         <Route path="/message/:id" element={<Message />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     )
   );

@@ -64,6 +64,9 @@ export const MainDiv = styled.div`
         letter-spacing: 4px;
       }
     }
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
   .middle-div {
     width: 70%;
@@ -113,6 +116,12 @@ export const MainDiv = styled.div`
           margin-top: 10%;
           width: 100%;
         }
+      }
+    }
+    @media (max-width: 480px) {
+      width: 100%;
+      h1 {
+        font-size: 60px;
       }
     }
   }
@@ -239,7 +248,7 @@ const ForgetPassword = () => {
           <MainDiv className=" d-flex justify-content-center">
             <div className="main-cover">
               <div className="upper-div d-flex flex-column flex-sm-row">
-                <div className="left-div d-flex flex-column justify-content-around align-items-start">
+                <div className="left-div d-none d-md-flex flex-md-column justify-content-md-around align-items-md-start">
                   <div className="profile"></div>
                   <div className="socials">
                     <div className="icons d-flex justify-content-around align-items-center flex-column">

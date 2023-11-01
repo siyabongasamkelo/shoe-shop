@@ -19,41 +19,49 @@ router.post(
       return;
     }
 
-    const secret = JWT_SECRET + user.password;
-    const payload = {
-      email: user.email,
-      id: user._id,
-    };
+    function isEmpty(val) {
+      return val === undefined || val == null || val.length <= 0 ? true : false;
+    }
 
-    const token = jwt.sign(payload, secret, { expiresIn: "15m" });
+    if (isEmpty(user) !== true) {
+      const secret = JWT_SECRET + user.password;
+      const payload = {
+        email: user.email,
+        id: user._id,
+      };
 
-    const link = `http://localhost:3000/reset/${user[0]._id}/${token}`;
-    res.json("Reset link was sent to your email...");
+      const token = jwt.sign(payload, secret, { expiresIn: "15m" });
 
-    const transporter = nodemailer.createTransport({
-      service: "hotmail",
-      auth: {
-        user: "siyabongasamkelociam@outlook.com",
-        pass: "Bafana2001",
-      },
-    });
+      const link = `http://localhost:3000/reset/${user[0]._id}/${token}`;
+      res.json("Reset link was sent to your email...");
 
-    const options = {
-      from: "siyabongasamkelociam@outlook.com",
-      to: `${email}`,
-      subject: "DingDomZone Password reset",
-      text: `To reset your password please click this link ${link}`,
-    };
+      const transporter = nodemailer.createTransport({
+        service: "hotmail",
+        auth: {
+          user: "siyabongasamkelociam@outlook.com",
+          pass: "Bafana2001",
+        },
+      });
 
-    transporter.sendMail(options, (err, info) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      console.log(info.response);
-      //   res.json(info.response);
-      res.json(link);
-    });
+      const options = {
+        from: "siyabongasamkelociam@outlook.com",
+        to: `${email}`,
+        subject: "DingDomZone Password reset",
+        text: `To reset your password please click this link ${link}`,
+      };
+
+      transporter.sendMail(options, (err, info) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        console.log(info.response);
+        //   res.json(info.response);
+        res.json(link);
+      });
+    } else {
+      res.json("user with that email does not exist");
+    }
 
     // res.json(link);
   }

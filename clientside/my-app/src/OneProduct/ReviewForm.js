@@ -29,7 +29,7 @@ export const ReviewStyled = styled.div`
   }
 `;
 
-const ReviewForm = ({ productId, formOpener }) => {
+const ReviewForm = ({ productId, formOpener, storeId }) => {
   const theUser = useSelector((state) => state?.user?.value?.user[0]?._id);
   // const theReview = useSelector((state) => state.reviews);
   // const theReview = useSelector((state) => state);
@@ -70,6 +70,7 @@ const ReviewForm = ({ productId, formOpener }) => {
           review,
           rating,
           productId,
+          storeId: storeId,
           writerId: theUser,
         })
         .then(() => {

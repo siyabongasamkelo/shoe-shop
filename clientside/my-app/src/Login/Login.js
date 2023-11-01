@@ -323,6 +323,9 @@ const Login = () => {
                           Don't have an account ?
                           <Link to="/register">register</Link> now
                         </label>
+                        <label>
+                          <Link to="/forgot">Forgot Password ?</Link>
+                        </label>
                       </div>
                       <div></div>
                     </div>
