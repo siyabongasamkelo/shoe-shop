@@ -9,6 +9,7 @@ const cookiepaser = require("cookie-parser");
 const Messages = require("./model/Message");
 
 const registerUser = require("./routes/RegisterUser");
+const login = require("./routes/LogIn");
 
 const io = require("socket.io")(3002, {
   cors: {
@@ -236,7 +237,7 @@ app.use("/get", require("./routes/getSenders.js"));
 
 //user auth routes
 app.use("/register", registerUser);
-app.use("/login", require("./routes/LogIn.js"));
+app.use("/login", login);
 app.use("/get", require("./routes/getUser.js"));
 app.use("/forgot", require("./routes/sendMail.js"));
 app.use("/reset", require("./routes/ResetPassword.js"));
