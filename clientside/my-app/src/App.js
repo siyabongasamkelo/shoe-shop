@@ -4,7 +4,6 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Products from "./Admin/Products";
 import Message from "./Chat/Message";
 import Messaging from "./Chat/Messaging";
 import ForgetPassword from "./ForgetPassword/ForgetPassword";

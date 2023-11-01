@@ -47,11 +47,6 @@ const SendersCard = ({ userId, clicked }) => {
 
   const [senders, setSenders] = useState("");
 
-  const showToastMessage = (message) => {
-    toast.success(message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
   const showErrorMessage = (message) => {
     toast.error(message, {
       position: toast.POSITION.TOP_RIGHT,
@@ -77,19 +72,14 @@ const SendersCard = ({ userId, clicked }) => {
       }}
     >
       <ToastContainer />
-      <div
-        className="manageItem d-flex align-items-center"
-        onClick={() => {
-          // goTo("admin");
-        }}
-      >
+      <div className="manageItem d-flex align-items-center">
         <div
           style={{
             height: "40px",
             aspectRatio: "1 / 1",
             borderRadius: "50%",
             backgroundImage: `url(${senders[0]?.image})`,
-            // backgroundColor: "black",
+
             backgroundSize: "cover",
             backgroundPosition: "center",
             marginLeft: "20px",

@@ -9,7 +9,6 @@ import SmallLineChart from "./SmallLineChart";
 import s1 from "../Images/s1.png";
 import Form from "react-bootstrap/Form";
 import CartCard from "../Cart/CartCard";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -307,7 +306,6 @@ export const MainDiv = styled.div`
 
 const Admin = () => {
   const [senders, setSenders] = useState([]);
-  const navigation = useNavigate();
   const theStore = useSelector((state) => state?.store?.value?.store[0]);
   let author = theStore?._id;
 
@@ -317,9 +315,6 @@ const Admin = () => {
     });
   };
 
-  function isEmpty(val) {
-    return val === undefined || val == null || val.length <= 0 ? true : false;
-  }
   useEffect(() => {
     axios
       .get(`http://localhost:3001/get/senders/${author}`)
@@ -330,20 +325,6 @@ const Admin = () => {
         showToastMessage(err.message);
       });
   }, []);
-
-  const goTo = (link) => {
-    navigation(`/${link}`);
-  };
-
-  const getMessages = (id) => {
-    if (senders !== isEmpty(senders)) {
-      navigation(`/message/${senders[0]}`);
-    } else {
-      showToastMessage("you do not have any message");
-    }
-  };
-
-  // console.log(senders[0]);
 
   return (
     <OneProdStyled className="d-flex justify-content-center align-items-center">

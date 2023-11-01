@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Whatsapp } from "react-bootstrap-icons";
 import { TailSpin } from "react-loader-spinner";
 
@@ -174,11 +174,6 @@ const Register = () => {
   const [conPassword, setConPassword] = useState("");
   const [loading, setLoading] = useState(false);
   let isValid = true;
-
-  // const navigate = useNavigate();
-  // const goTo = (address) => {
-  //   navigate(`/${address}`);
-  // };
 
   const showToastMessage = (message) => {
     toast.error(message, {

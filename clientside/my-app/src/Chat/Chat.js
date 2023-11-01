@@ -27,8 +27,6 @@ const Chat = ({ socket, username, room }) => {
     });
   }, [socket]);
 
-  // console.log(messageList);
-
   return (
     <div>
       <div className="chat-header">

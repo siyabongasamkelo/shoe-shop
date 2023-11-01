@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Header from "../Components/Header";
 import Table from "react-bootstrap/Table";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   Bag,
@@ -16,7 +15,7 @@ import {
 import s1 from "../Images/s1.png";
 import CartCard from "../Cart/CartCard";
 import { useNavigate } from "react-router-dom";
-// import axios from "axios";
+
 export const OneProdStyled = styled.section`
   height: 100vh;
   width: 100vw;
@@ -80,23 +79,10 @@ const Products = () => {
     navigation(`/${link}`);
   };
 
-  const showToastMessage = (message) => {
-    toast.success(message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
-
-  const showErrorMessage = (message) => {
-    toast.error(message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
-
   return (
     <OneProdStyled className="d-flex justify-content-center align-items-center">
       <OneProdCover className="d-flex justify-content-center align-items-center">
         <FinalLayer>
-          <ToastContainer />
           <Header />
           <MainDiv className=" d-flex justify-content-center">
             <div className="main-cover d-flex flex-column flex-md-row justify-content-around">

@@ -172,7 +172,6 @@ const Message = () => {
   const [messageList, setMessageList] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const [senders, setSenders] = useState([]);
-  const [trigger, setTrigger] = useState();
   const [loading, setLoading] = useState(false);
 
   const theUser = useSelector((state) => state?.user?.value?.user[0]?._id);
@@ -187,10 +186,6 @@ const Message = () => {
   if (userLOgged === true) {
     author = theUser;
   }
-
-  const goTo = (link) => {
-    navigation(`/${link}`);
-  };
 
   const showToastMessage = (text) => {
     toast.success(text, {
@@ -215,7 +210,6 @@ const Message = () => {
 
   useEffect(() => {
     setLoading(true);
-    // window.location.reload();
     socket.on("connect", () => {
       showToastMessage(`you connected with id ${socket.id}`);
       socket.emit("show", socket.id, author);
@@ -304,15 +298,7 @@ const Message = () => {
                   </div>
 
                   {senders?.map((sender) => {
-                    return (
-                      <SendersCard
-                        userId={sender}
-                        clicked={() => {
-                          // socket.emit("get-message", author);
-                          // alert("working");
-                        }}
-                      />
-                    );
+                    return <SendersCard userId={sender} />;
                   })}
                 </div>
 
@@ -330,7 +316,6 @@ const Message = () => {
                         }}
                       ></div>
                       <p style={{ marginLeft: "20px" }}>Siya Samkelo</p>
-                      {/* <p style={{ marginLeft: "20px" }}>{id}</p> */}
                     </div>
                     <div className="icons">
                       <Search />

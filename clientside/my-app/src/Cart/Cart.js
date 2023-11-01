@@ -124,8 +124,6 @@ const Cart = () => {
       });
   };
 
-  // console.log(theCart[0]);
-  // console.log(theUser?.user[0]?._id);
   return (
     <OneProdStyled className="d-flex justify-content-center align-items-center">
       <OneProdCover className="d-flex justify-content-center align-items-center">
@@ -184,7 +182,7 @@ const Cart = () => {
                       <p>R {totalPrice}</p>
                     </div>
                     <div className=" d-flex justify-content-between">
-                      <p>Discpunt</p>
+                      <p>Discount</p>
                       <p>R 00</p>
                     </div>
                     <div className=" d-flex justify-content-between">

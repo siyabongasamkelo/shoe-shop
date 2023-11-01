@@ -288,8 +288,6 @@ const OneProduct = () => {
   const theUser = useSelector((state) => state?.user?.value?.user[0]);
   const [Propic, setPropic] = useState("");
 
-  // const theReviewForm = useSelector((state) => state?.reviews?.value?.openForm);
-  // const theReview = useSelector((state) => state.reviews.value.review);
   const theReview = useSelector((state) => state?.reviews?.value?.review);
   const [openForm, setOpenForm] = useState(false);
   const [openReviews, setOpenReviews] = useState(false);
@@ -303,14 +301,6 @@ const OneProduct = () => {
 
   const getItem = (id) => {
     navigate(`/get/item/${id}`);
-  };
-
-  // const getStore = (id) => {
-  //   navigate(`/message/${id}`);
-  // };
-
-  const getStore = (id) => {
-    navigate(`/message/${id}`);
   };
 
   function isEmpty(val) {

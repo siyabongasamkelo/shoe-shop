@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Facebook,
   Instagram,
@@ -186,13 +186,7 @@ const ResetPassWord = () => {
 
   let isValid = true;
 
-  const navigate = useNavigate();
-  const goTo = (address) => {
-    navigate(`/${address}`);
-  };
-
   //state for determining if it's a user or a seller
-  const [regAs, setRegAs] = useState("user");
 
   const showToastMessage = (message) => {
     toast.error(message, {
@@ -338,34 +332,14 @@ const ResetPassWord = () => {
 
                 <div className="right-div d-flex flex-column justify-content-betwween align-items-end text-white">
                   <div className="recommended"></div>
-                  <div className="sizes d-flex justify-content-around">
-                    {/* <Button>Xs</Button>
-                    <Button>S</Button>
-                    <Button>M</Button>
-                    <Button>L</Button>
-                    <Button>Xl</Button> */}
-                  </div>
+                  <div className="sizes d-flex justify-content-around"></div>
                 </div>
               </div>
               <div className="lower-div d-flex flex-column flex-md-row justify-content-md-between ">
-                <div className="lower-left  d-flex justify-content-between align-items-center text-white">
-                  {/* <p>REVIEWS</p>
-                  <p>DELIVERY & RETURN</p> */}
-                </div>
+                <div className="lower-left  d-flex justify-content-between align-items-center text-white"></div>
                 <div className="lower-right d-flex justify-content-between">
-                  <div className="color d-flex justify-content-between align-items-end text-white">
-                    {/* <div
-                      style={{
-                        height: "30px",
-                        aspectRatio: "1 / 1",
-                        borderRadius: "50%",
-                        backgroundColor: "black",
-                      }}
-                    ></div>
-                    <p>COLOR</p> */}
-                  </div>
+                  <div className="color d-flex justify-content-between align-items-end text-white"></div>
                   <div className="price d-flex flex-column justify-content-end  align-items-end">
-                    {/* <h3>R 3800</h3> */}
                     <Button>Go Back</Button>
                   </div>
                 </div>

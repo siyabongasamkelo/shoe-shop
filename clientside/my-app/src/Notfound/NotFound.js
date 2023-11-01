@@ -1,14 +1,6 @@
 import styled from "styled-components";
 import Header from "../Components/Header";
 import about1 from "../Images/about1.jpg";
-import Button from "react-bootstrap/Button";
-import { ToastContainer, toast } from "react-toastify";
-import { getAllReviews } from "../Features/Review";
-import { Chat, Person, X } from "react-bootstrap-icons";
-import { Facebook, Instagram, Twitter, Whatsapp } from "react-bootstrap-icons";
-import { TailSpin } from "react-loader-spinner";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export const OneProdStyled = styled.section`
   height: 100vh;
@@ -278,29 +270,11 @@ export const MainDiv = styled.div`
 `;
 
 const NotFound = () => {
-  const [loading, setLoading] = useState("");
-
-  function isEmpty(val) {
-    return val === undefined || val == null || val.length <= 0 ? true : false;
-  }
-
-  const showToastMessage = (message) => {
-    toast.success(message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
-  const showErrorMessage = (message) => {
-    toast.error(message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  };
-
   return (
     <OneProdStyled className="d-flex justify-content-center align-items-center">
       <OneProdCover className="d-flex justify-content-center align-items-center">
         <FinalLayer>
           <Header />
-          <ToastContainer />
           <MainDiv className=" d-flex justify-content-center">
             <h1 className=" text-white mt-5 ">Page not Found...</h1>
           </MainDiv>

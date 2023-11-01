@@ -11,7 +11,6 @@ import {
   Twitter,
   Whatsapp,
 } from "react-bootstrap-icons";
-import { Link, useNavigate } from "react-router-dom";
 export const OneProdStyled = styled.section`
   height: 100vh;
   width: 100vw;
@@ -175,13 +174,6 @@ const ForgetPassword = () => {
   const [email, setEmail] = useState("");
 
   let isValid = true;
-
-  const navigate = useNavigate();
-  const goTo = (address) => {
-    navigate(`/${address}`);
-  };
-
-  //state for determining if it's a user or a seller
 
   const showToastMessage = (message) => {
     toast.error(message, {
