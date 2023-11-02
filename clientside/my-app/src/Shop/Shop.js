@@ -82,6 +82,7 @@ const Shop = ({ genders, carts, sizes, sorts }) => {
       })
       .catch((err) => {
         showToastMessage(err.message);
+        console.log(err);
       });
   }, [sort, cart, size, gender, dispatch]);
 
