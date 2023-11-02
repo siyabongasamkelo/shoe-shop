@@ -13,7 +13,6 @@ import {
   Send,
 } from "react-bootstrap-icons";
 import propic5 from "../Images/propic5.jpg";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
@@ -164,7 +163,6 @@ export const Messagebox = styled.div`
 `;
 
 const Message = () => {
-  const navigation = useNavigate();
   const { id } = useParams();
   // const [author, setAuthor] = useState("");
   let author;
@@ -234,8 +232,6 @@ const Message = () => {
       setMessageList(message);
     });
   }, [socket]);
-
-  console.log(senders);
 
   return (
     <OneProdStyled className="d-flex justify-content-center align-items-center">

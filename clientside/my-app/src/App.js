@@ -20,7 +20,6 @@ import MenPage from "./Pages/MenPage";
 import OneProdPage from "./Pages/OneProdPage";
 import OrdersPage from "./Pages/OrdersPage";
 import ProductsPage from "./Pages/ProductPage";
-// import OrdersPage from "./Pages/OrdersPage";
 import ResetPassPage from "./Pages/ResetPassPage";
 import ReviewsPage from "./Pages/ReviewsPage";
 import ShopPage from "./Pages/ShopPage";

@@ -88,9 +88,6 @@ export const Svgwhite = styled.div`
 function Header() {
   const dispatch = useDispatch();
   const [cartTotal, setCartTotal] = useState(0);
-  // const theUser = useSelector((state) => state.user?.value?.user[0]);
-  // const theStore = useSelector((state) => state.store.value.store[0]);
-  // const theUserCheck = useSelector((state) => state.user.value.user[0]);
   const theCart = useSelector((state) => state.cart.value);
 
   const [show, setShow] = useState(false);
@@ -100,10 +97,6 @@ function Header() {
 
   const isStoreLogged = useSelector((state) => state.store.value.isLogged);
   const isUserLogged = useSelector((state) => state.user.value.isLogged);
-
-  function isEmpty(val) {
-    return val === undefined || val == null || val.length <= 0 ? true : false;
-  }
 
   useEffect(() => {
     let totalItem = 0;

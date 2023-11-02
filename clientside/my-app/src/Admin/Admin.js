@@ -365,10 +365,7 @@ const Admin = () => {
                   <div className="upper-lower d-flex flex-column flex-md-row justify-content-between">
                     <div className="range">
                       <div className="pie-text">
-                        <h5>
-                          {/* <span>R</span>700 */}
-                          700
-                        </h5>
+                        <h5>700</h5>
                         <p>Orders This Month</p>
                       </div>
                       <div className="small-pie text-white">
@@ -382,10 +379,7 @@ const Admin = () => {
                     </div>
                     <div className="new-c">
                       <div className="pie-text">
-                        <h5>
-                          {/* <span>R</span>69,700 */}
-                          100
-                        </h5>
+                        <h5>100</h5>
                         <p>New Customers</p>
                       </div>
                       <div className="small-pie">

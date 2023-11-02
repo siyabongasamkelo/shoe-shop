@@ -41,7 +41,7 @@ const ReviewCard = ({ writerId, review }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/get/user/${writerId}`)
+      .get(`https://shoe-shop-jbik.onrender.com/get/user/${writerId}`)
       .then((res) => {
         setuser(res.data);
       })
@@ -49,7 +49,7 @@ const ReviewCard = ({ writerId, review }) => {
         showErrorMessage(err.message);
       });
   }, []);
-  console.log(user[0]);
+
   return (
     <ReviewCardStyled className=" d-flex justify-content-center align-items-center">
       <div className="reviews-card d-flex justify-content-between">

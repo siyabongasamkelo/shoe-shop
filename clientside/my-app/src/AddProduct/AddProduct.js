@@ -230,7 +230,6 @@ const AddProdct = () => {
     formData.append("color", color);
     formData.append("image", image);
     formData.append("store", theStore?._id);
-    // formData.append("store", "h1f3gf2g3f2t32");
 
     //https://shoe-shop-jbik.onrender.com
 

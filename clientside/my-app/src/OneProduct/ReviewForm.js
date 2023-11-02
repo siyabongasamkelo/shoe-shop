@@ -31,8 +31,6 @@ export const ReviewStyled = styled.div`
 
 const ReviewForm = ({ productId, formOpener, storeId }) => {
   const theUser = useSelector((state) => state?.user?.value?.user[0]?._id);
-  // const theReview = useSelector((state) => state.reviews);
-  // const theReview = useSelector((state) => state);
 
   const [review, setReview] = useState();
   const [rating, setRating] = useState(0);
@@ -66,7 +64,7 @@ const ReviewForm = ({ productId, formOpener, storeId }) => {
       showErrorMessage("review fieild cannnot be empty");
     } else {
       axios
-        .post("http://localhost:3001/add/review", {
+        .post("https://shoe-shop-jbik.onrender.com/add/review", {
           review,
           rating,
           productId,

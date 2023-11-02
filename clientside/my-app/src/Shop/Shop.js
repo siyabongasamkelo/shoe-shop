@@ -157,9 +157,6 @@ const Shop = ({ genders, carts, sizes, sorts }) => {
                   <Button>Couples</Button>
                 </div>
                 <div className="store d-flex flex-wrap">
-                  {/* <ItemComp pic={s1} color="#f29200" />
-              <ItemComp pic={s1} color="#f29200" /> */}
-
                   {sorted?.map((val) => {
                     return (
                       <ItemCompN

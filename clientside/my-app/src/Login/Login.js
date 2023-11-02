@@ -206,13 +206,6 @@ const Login = () => {
     });
   };
 
-  // const config = {
-  //   headers: {
-  //     "content-type": "multipart/form-data",
-  //     jwt: localStorage.getItem("token"),
-  //   },
-  // };
-
   axios.defaults.withCredentials = true;
   const loginhandle = () => {
     succToastMessage("sending request please wait");
