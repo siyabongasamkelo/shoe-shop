@@ -14,6 +14,7 @@ const login = require("./routes/LogIn");
 const io = require("socket.io")(3002, {
   cors: {
     // origin: ["http://localhost:3000"],
+    origin: ["*"],
   },
 });
 
@@ -44,13 +45,14 @@ app.use(cookiepaser());
 // app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb" }));
 
-// app.use(
-//   cors({
-//     origin: ["http://localhost:3000", "https://siya-shoeshop.netlify.app/"],
-//     methods: ["GET", "POST", "DELETE"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    // origin: ["http://localhost:3000", "https://siya-shoeshop.netlify.app/"],
+    origin: ["*"],
+    methods: ["GET", "POST", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use(fileupload({ useTempFiles: true }));
 
