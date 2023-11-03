@@ -11,13 +11,19 @@ const Messages = require("./model/Message");
 const registerUser = require("./routes/RegisterUser");
 const login = require("./routes/LogIn");
 
-const io = require("socket.io")(3002, {
+const io = require("socket.io")({
   cors: {
-    // origin: ["http://localhost:3000"],
-    // origin: ["*"],
-    origin: [`${process.env.SOCKETIOPORT}`],
+    origin: ["https://siya-shoeshop.netlify.app"],
   },
 });
+
+// const io = require("socket.io")(3002, {
+//   cors: {
+//     // origin: ["http://localhost:3000"],
+//     // origin: ["*"],
+//     origin: ["https://siya-shoeshop.netlify.app"],
+//   },
+// });
 
 dotenv.config();
 const app = express();
