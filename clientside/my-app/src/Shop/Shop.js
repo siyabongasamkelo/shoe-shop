@@ -76,14 +76,14 @@ const Shop = ({ genders, carts, sizes, sorts }) => {
           gender,
           cart,
           sort,
-        },
-        {
-          headers: {
-            "Cache-Control": "no-cache",
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Access-Control-Allow-Origin": "*",
-          },
         }
+        // {
+        //   headers: {
+        //     "Cache-Control": "no-cache",
+        //     "Content-Type": "application/x-www-form-urlencoded",
+        //     "Access-Control-Allow-Origin": "*",
+        //   },
+        // }
       )
       .then((res) => {
         dispatch(clearItems());
