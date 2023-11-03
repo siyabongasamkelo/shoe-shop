@@ -206,7 +206,7 @@ const Login = () => {
     });
   };
 
-  axios.defaults.withCredentials = true;
+  // axios.defaults.withCredentials = true;
   const loginhandle = () => {
     succToastMessage("sending request please wait");
     setLoading(true);

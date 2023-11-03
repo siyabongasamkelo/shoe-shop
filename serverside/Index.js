@@ -12,10 +12,11 @@ const registerUser = require("./routes/RegisterUser");
 const login = require("./routes/LogIn");
 
 const io = require("socket.io")(3002, {
-  // cors: {
-  //   // origin: ["http://localhost:3000"],
-  //   origin: ["*"],
-  // },
+  cors: {
+    // origin: ["http://localhost:3000"],
+    // origin: ["*"],
+    origin: [`${process.env.SOCKETIOPORT}`],
+  },
 });
 
 dotenv.config();
@@ -25,7 +26,6 @@ app.set("routes", __dirname + "/routes");
 app.use("/routes/", express.static(path.join(__dirname, "./routes")));
 
 app.use(express.static("routes"));
-// app.use(require("./routes"));
 
 //mongoDb connenction
 mongoose.set("strictQuery", true);
@@ -42,19 +42,8 @@ app.use(
 );
 
 app.use(cookiepaser());
-// app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb" }));
 app.use(cors());
-
-// app.use(
-//   cors({
-//     // origin: ["http://localhost:3000", "https://siya-shoeshop.netlify.app/"],
-//     origin: ["*"],
-//     // Access-Control-Allow-Origin: ["*"],
-//     methods: ["GET", "POST", "DELETE"],
-//     credentials: true,
-//   })
-// );
 
 app.use(fileupload({ useTempFiles: true }));
 
@@ -226,30 +215,6 @@ io.on("connection", (socket) => {
   });
 });
 
-// app.use(function (req, res, next) {
-//   // Website you wish to allow to connect
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-
-//   // Request methods you wish to allow
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-//   );
-
-//   // Request headers you wish to allow
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "X-Requested-With,content-type"
-//   );
-
-//   // Set to true if you need the website to include cookies in the requests sent
-//   // to the API (e.g. in case you use sessions)
-//   res.setHeader("Access-Control-Allow-Credentials", true);
-
-//   // Pass to next layer of middleware
-//   next();
-// });
-
 //routes
 //product routes
 app.use("/add", require("./routes/addItems.js"));
@@ -288,5 +253,5 @@ app.all("*", (req, res) => {
 });
 
 app.listen(process.env.Port, () => {
-  console.log("working");
+  console.log(`running on port ${process.env.Port}`);
 });

@@ -18,7 +18,8 @@ import { useParams } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
 import io from "socket.io-client";
 import SendersCard from "../Admin/SendersCard";
-const socket = io.connect("http://localhost:3002");
+// const socket = io.connect("http://localhost:3002");
+const socket = io.connect(`${process.env.REACT_APP_SOCKETIOPORT}:3002`);
 
 export const OneProdStyled = styled.section`
   height: 100vh;

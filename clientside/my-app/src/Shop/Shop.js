@@ -69,22 +69,12 @@ const Shop = ({ genders, carts, sizes, sorts }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .post(
-        "https://shoe-shop-jbik.onrender.com/get/itemquery",
-        {
-          size,
-          gender,
-          cart,
-          sort,
-        }
-        // {
-        //   headers: {
-        //     "Cache-Control": "no-cache",
-        //     "Content-Type": "application/x-www-form-urlencoded",
-        //     "Access-Control-Allow-Origin": "*",
-        //   },
-        // }
-      )
+      .post("https://shoe-shop-jbik.onrender.com/get/itemquery", {
+        size,
+        gender,
+        cart,
+        sort,
+      })
       .then((res) => {
         dispatch(clearItems());
         dispatch(getAllItems(res.data));
