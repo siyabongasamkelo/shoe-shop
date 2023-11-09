@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Chat from "./Chat";
-const socket = io.connect("http://localhost:3002");
+// const socket = io.connect("http://localhost:3002");
 
 export const OneProdStyled = styled.section`
   height: 100vh;
@@ -50,7 +50,7 @@ const Messaging = () => {
 
   const joinRoom = () => {
     if (username !== "" && room !== "") {
-      socket.emit("join_room", room);
+      // socket.emit("join_room", room);
     }
   };
 
@@ -80,7 +80,7 @@ const Messaging = () => {
               />
               <button onClick={joinRoom}>Join Room</button>
 
-              <Chat socket={socket} username={username} room={room} />
+              {/* <Chat socket={socket} username={username} room={room} /> */}
             </div>
           </MainDiv>
         </FinalLayer>

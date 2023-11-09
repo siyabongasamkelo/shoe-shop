@@ -7,26 +7,27 @@ const fileupload = require("express-fileupload");
 const cors = require("cors");
 const cookiepaser = require("cookie-parser");
 const Messages = require("./model/Message");
+const { Server } = require("socket.io");
 
 const registerUser = require("./routes/RegisterUser");
 const login = require("./routes/LogIn");
 
-const io = require("socket.io")({
-  cors: {
-    origin: ["https://siya-shoeshop.netlify.app"],
-  },
-});
+dotenv.config();
+const app = express();
+const server = require("http").createServer(app);
 
-// const io = require("socket.io")(3002, {
+// const io = require("socket.io")({
 //   cors: {
-//     // origin: ["http://localhost:3000"],
-//     // origin: ["*"],
 //     origin: ["https://siya-shoeshop.netlify.app"],
 //   },
 // });
 
-dotenv.config();
-const app = express();
+const io = new Server(server, {
+  cors: {
+    // origin: "http://localhost:3000",
+    origin: ["https://siya-shoeshop.netlify.app"],
+  },
+});
 
 app.set("routes", __dirname + "/routes");
 app.use("/routes/", express.static(path.join(__dirname, "./routes")));
@@ -258,6 +259,6 @@ app.all("*", (req, res) => {
   res.json("404 Page not found");
 });
 
-app.listen(process.env.Port, () => {
+server.listen(process.env.Port, () => {
   console.log(`running on port ${process.env.Port}`);
 });
