@@ -231,13 +231,18 @@ const AddProdct = () => {
     formData.append("image", image);
     formData.append("store", theStore?._id);
 
-    //https://shoe-shop-jbik.onrender.com
+    let Url = "";
+    if (process.env.REACT_APP_ENVIRONMENT === "DEVELOPMENT") {
+      Url = "http://localhost:3001";
+    } else {
+      Url = "https://shoe-shop-jbik.onrender.com";
+    }
+    const BaseUrl = Url;
 
     if (isValid === true) {
       setLoading(true);
       axios
-        // .post("http://localhost:3001/add/item", formData)
-        .post("https://shoe-shop-jbik.onrender.com/add/item", formData)
+        .post(`${BaseUrl}/add/item`, formData)
         .then((res) => {
           showToastMessage(res.data);
           setLoading(false);
