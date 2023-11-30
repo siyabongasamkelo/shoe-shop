@@ -305,7 +305,6 @@ export const MainDiv = styled.div`
 `;
 
 const Admin = () => {
-  const [senders, setSenders] = useState([]);
   const theStore = useSelector((state) => state?.store?.value?.store[0]);
   let author = theStore?._id;
 
@@ -315,16 +314,22 @@ const Admin = () => {
     });
   };
 
+  let Url = "";
+  if (process.env.REACT_APP_ENVIRONMENT === "DEVELOPMENT") {
+    Url = "http://localhost:3001";
+  } else {
+    Url = "https://shoe-shop-jbik.onrender.com";
+  }
+  const BaseUrl = Url;
+
   useEffect(() => {
     axios
-      .get(`https://shoe-shop-jbik.onrender.com/get/senders/${author}`)
-      .then((res) => {
-        setSenders(res.data);
-      })
+      .get(`${BaseUrl}/${author}`)
+      .then((res) => {})
       .catch((err) => {
         showToastMessage(err.message);
       });
-  }, []);
+  }, [BaseUrl, author]);
 
   return (
     <OneProdStyled className="d-flex justify-content-center align-items-center">

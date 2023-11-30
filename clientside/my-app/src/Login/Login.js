@@ -206,15 +206,20 @@ const Login = () => {
     });
   };
 
+  let Url = "";
+  if (process.env.REACT_APP_ENVIRONMENT === "DEVELOPMENT") {
+    Url = "http://localhost:3001";
+  } else {
+    Url = "https://shoe-shop-jbik.onrender.com";
+  }
+  const BaseUrl = Url;
+
   // axios.defaults.withCredentials = true;
   const loginhandle = () => {
     succToastMessage("sending request please wait");
     setLoading(true);
     axios
-      .post(
-        "https://shoe-shop-jbik.onrender.com/login/user",
-        { email, password } /*config*/
-      )
+      .post(`${BaseUrl}/login/user`, { email, password } /*config*/)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         succToastMessage("you're now logged in");

@@ -218,14 +218,20 @@ const ForgetPassword = () => {
     let formData = new FormData();
     formData.append("email", email);
 
+    let Url = "";
+    if (process.env.REACT_APP_ENVIRONMENT === "DEVELOPMENT") {
+      Url = "http://localhost:3001";
+    } else {
+      Url = "https://shoe-shop-jbik.onrender.com";
+    }
+    const BaseUrl = Url;
+
     //making sure that everything is valid before making the request
     if (isValid === true) {
-      axios
-        .post("https://shoe-shop-jbik.onrender.com/forgot/password", formData)
-        .then((res) => {
-          succToastMessage(res.data);
-          //   goTo("/login");
-        });
+      axios.post(`${BaseUrl}/forgot/password`, formData).then((res) => {
+        succToastMessage(res.data);
+        //   goTo("/login");
+      });
     } else {
       showToastMessage("please ensure that no field is empty");
     }

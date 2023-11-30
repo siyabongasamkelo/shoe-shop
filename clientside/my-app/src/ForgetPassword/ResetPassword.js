@@ -246,17 +246,20 @@ const ResetPassWord = () => {
     formData.append("password", password);
     formData.append("conPassowrd", conPassword);
 
+    let Url = "";
+    if (process.env.REACT_APP_ENVIRONMENT === "DEVELOPMENT") {
+      Url = "http://localhost:3001";
+    } else {
+      Url = "https://shoe-shop-jbik.onrender.com";
+    }
+    const BaseUrl = Url;
+
     //making sure that everything is valid before making the request
     if (isValid) {
-      axios
-        .post(
-          `https://shoe-shop-jbik.onrender.com/reset/${id}/${token}`,
-          formData
-        )
-        .then((res) => {
-          succToastMessage(res.data);
-          //   goTo("/login");
-        });
+      axios.post(`${BaseUrl}/reset/${id}/${token}`, formData).then((res) => {
+        succToastMessage(res.data);
+        //   goTo("/login");
+      });
     } else {
       showToastMessage("please make sure all no feild is empty");
     }

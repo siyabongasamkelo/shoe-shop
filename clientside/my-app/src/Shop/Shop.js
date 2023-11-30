@@ -30,6 +30,10 @@ export const FinalLayer = styled.div`
 export const MainDiv = styled.div`
   height: 90%;
   width: 100%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .text {
   }
   .filter {
@@ -66,10 +70,18 @@ const Shop = ({ genders, carts, sizes, sorts }) => {
     });
   };
 
+  let Url = "";
+  if (process.env.REACT_APP_ENVIRONMENT === "DEVELOPMENT") {
+    Url = "http://localhost:3001";
+  } else {
+    Url = "https://shoe-shop-jbik.onrender.com";
+  }
+  const BaseUrl = Url;
+
   useEffect(() => {
     setLoading(true);
     axios
-      .post("https://shoe-shop-jbik.onrender.com/get/itemquery", {
+      .post(`${BaseUrl}/get/itemquery`, {
         size,
         gender,
         cart,
@@ -84,7 +96,7 @@ const Shop = ({ genders, carts, sizes, sorts }) => {
         showToastMessage(err.message);
         console.log(err);
       });
-  }, [sort, cart, size, gender, dispatch]);
+  }, [sort, cart, size, gender, dispatch, BaseUrl]);
 
   const getItem = (id) => {
     navigate(`/get/item/${id}`);

@@ -18,8 +18,9 @@ import { useParams } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
 import io from "socket.io-client";
 import SendersCard from "../Admin/SendersCard";
-// const socket = io.connect("http://localhost:3002");
-const socket = io.connect("https://shoe-shop-jbik.onrender.com");
+
+// const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://shoe-shop-jbik.onrender.com:3001");
 
 export const OneProdStyled = styled.section`
   height: 100vh;
@@ -169,7 +170,6 @@ const Message = () => {
   let author;
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const [onlineUsers, setOnlineUsers] = useState([]);
   const [senders, setSenders] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -208,18 +208,16 @@ const Message = () => {
   };
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     socket.on("connect", () => {
       showToastMessage(`you connected with id ${socket.id}`);
       socket.emit("show", socket.id, author);
-      socket.on("online-users", (onlineUsers) => {
-        setOnlineUsers(onlineUsers);
-      });
+      socket.on("online-users", (onlineUsers) => {});
       socket.emit("get-message", author, id);
       socket.emit("get-senders", author);
       setLoading(false);
     });
-  }, [socket]);
+  }, [socket, id, author]);
 
   useEffect(() => {
     socket.on("senders", (senders) => {

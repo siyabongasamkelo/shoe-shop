@@ -249,26 +249,30 @@ const Register = () => {
       formData.append("description", description);
     }
 
+    let Url = "";
+    if (process.env.REACT_APP_ENVIRONMENT === "DEVELOPMENT") {
+      Url = "http://localhost:3001";
+    } else {
+      Url = "https://shoe-shop-jbik.onrender.com";
+    }
+    const BaseUrl = Url;
+
     //making sure that everything is valid before making the request
     if (isValid === true) {
       if (regAs === "user") {
         setLoading(true);
-        axios
-          .post("https://shoe-shop-jbik.onrender.com/register/user", formData)
-          .then((res) => {
-            succToastMessage(res.data);
-            setLoading(false);
-            // goTo("/login");
-          });
+        axios.post(`${BaseUrl}/register/user`, formData).then((res) => {
+          succToastMessage(res.data);
+          setLoading(false);
+          // goTo("/login");
+        });
       } else {
         setLoading(true);
-        axios
-          .post("https://shoe-shop-jbik.onrender.com/register/store", formData)
-          .then((res) => {
-            succToastMessage(res.data);
-            setLoading(false);
-            // goTo("/login");
-          });
+        axios.post(`${BaseUrl}/register/store`, formData).then((res) => {
+          succToastMessage(res.data);
+          setLoading(false);
+          // goTo("/login");
+        });
       }
     } else {
       showToastMessage("please ensure that no field is empty");

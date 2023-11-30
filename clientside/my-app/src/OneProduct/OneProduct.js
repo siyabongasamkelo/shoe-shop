@@ -286,7 +286,6 @@ export const MainDiv = styled.div`
 const OneProduct = () => {
   const theCart = useSelector((state) => state.cart.value);
   const theUser = useSelector((state) => state?.user?.value?.user[0]);
-  const [Propic, setPropic] = useState("");
 
   const theReview = useSelector((state) => state?.reviews?.value?.review);
   const [openForm, setOpenForm] = useState(false);
@@ -302,6 +301,14 @@ const OneProduct = () => {
   const getItem = (id) => {
     navigate(`/get/item/${id}`);
   };
+
+  let Url = "";
+  if (process.env.REACT_APP_ENVIRONMENT === "DEVELOPMENT") {
+    Url = "http://localhost:3001";
+  } else {
+    Url = "https://shoe-shop-jbik.onrender.com";
+  }
+  const BaseUrl = Url;
 
   function isEmpty(val) {
     return val === undefined || val == null || val.length <= 0 ? true : false;
@@ -321,22 +328,17 @@ const OneProduct = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://shoe-shop-jbik.onrender.com/get/item/${id}`)
+      .get(`${BaseUrl}/get/item/${id}`)
       .then((response) => {
         dispatch(getAllReviews(response.data.reviews));
         setItem(response.data.item);
         setRecomm(response.data.recommended.slice(0, 3));
-        if (isEmpty(theUser) === true) {
-          setPropic(Person);
-        } else {
-          setPropic(theUser?.image);
-        }
         setLoading(false);
       })
       .catch((err) => {
         showErrorMessage(err.message);
       });
-  }, [id, dispatch]);
+  }, [id, dispatch, BaseUrl, theUser]);
 
   return (
     <OneProdStyled className="d-flex justify-content-center align-items-center">

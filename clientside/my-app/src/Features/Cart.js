@@ -8,31 +8,31 @@ export const cartSlice = createSlice({
       state.value.push(action.payload.item);
     },
     addQuantity: (state, action) => {
-      state.value.map((item) => {
-        if (item.id === action.payload.item.id) {
-          item.quantity = item.quantity + 1;
+      for (let i = 0; i < state.value.length; i++) {
+        if (state.value[i].id === action.payload.item.id) {
+          state.value[i].quantity = state.value[i].quantity + 1;
         }
-      });
+      }
     },
     detQuantity: (state, action) => {
-      state.value.map((item) => {
+      for (let i = 0; i < state.value.length; i++) {
         if (
-          item.id === action.payload.id &&
+          state.value[i].id === action.payload.id &&
           action.payload.operator === "add"
         ) {
-          item.quantity >= 20
-            ? (item.quantity = 20)
-            : (item.quantity = item.quantity + 1);
+          state.value[i].quantity >= 20
+            ? (state.value[i].quantity = 20)
+            : (state.value[i].quantity = state.value[i].quantity + 1);
         }
         if (
-          item.id === action.payload.id &&
+          state.value[i].id === action.payload.id &&
           action.payload.operator === "minus"
         ) {
-          item.quantity <= 1
-            ? (item.quantity = 1)
-            : (item.quantity = item.quantity - 1);
+          state.value[i].quantity <= 1
+            ? (state.value[i].quantity = 1)
+            : (state.value[i].quantity = state.value[i].quantity - 1);
         }
-      });
+      }
     },
     removeItem: (state, action) => {
       let index = null;

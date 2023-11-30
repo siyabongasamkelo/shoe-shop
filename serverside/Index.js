@@ -16,16 +16,10 @@ dotenv.config();
 const app = express();
 const server = require("http").createServer(app);
 
-// const io = require("socket.io")({
-//   cors: {
-//     origin: ["https://siya-shoeshop.netlify.app"],
-//   },
-// });
-
 const io = new Server(server, {
   cors: {
-    // origin: "http://localhost:3000",
-    origin: ["https://siya-shoeshop.netlify.app"],
+    origin: "http://localhost:3000",
+    // origin: ["https://siya-shoeshop.netlify.app"],
   },
 });
 
@@ -96,31 +90,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on("get-message", async (author, id) => {
-    // const myMessages = await Messages.find({
-    //   author: author,
-    // });
-    // const recievedMessages = await Messages.find({
-    //   receiver: author,
-    // });
-
-    // let theMessages = myMessages.concat(recievedMessages);
-
-    // let senders = [];
-
-    // for (let i = 0; i < recievedMessages.length; i++) {
-    //   senders.push(recievedMessages[i].author);
-    // }
-
-    // function removeDuplicates(arr) {
-    //   return arr.filter((item, index) => arr.indexOf(item) === index);
-    // }
-
-    // let testing = removeDuplicates(senders);
-
-    // console.log("getting your messages");
-    // socket.emit("senders", testing);
-    // socket.emit("messages", theMessages);
-
     const theMessages = await Messages.where("author")
       .equals(author)
       .where("receiver")
